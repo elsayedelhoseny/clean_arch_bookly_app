@@ -1,4 +1,5 @@
 import 'package:bookly/Features/home/domain/entites/book_entity.dart';
+import 'package:bookly/constants.dart';
 import 'package:hive/hive.dart';
 
 abstract class HomeLocalDataSource {
@@ -12,7 +13,7 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
     int startIndex = pageNumber * 10;
     int endIndex = (pageNumber + 1) * 10;
 
-    var box = Hive.box<BookEntity>('featured_box');
+    var box = Hive.box<BookEntity>(kFeaturedBox);
     int length = box.values.length;
     if (startIndex >= length || endIndex > length) {
       return [];
@@ -22,7 +23,7 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
 
   @override
   List<BookEntity> fetchNewestBooks() {
-    var box = Hive.box<BookEntity>('newest_box');
+    var box = Hive.box<BookEntity>(kNewestBox);
     return box.values.toList();
   }
 }
