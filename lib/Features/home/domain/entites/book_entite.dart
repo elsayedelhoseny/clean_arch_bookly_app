@@ -1,9 +1,16 @@
 class BookEntite {
-  final String image;
+  final String bookId;
+  final String? image;
   final String title;
-  final String subtitle;
-  final double price;
-  final String rating;
+  final String? subtitle;
+  final double? price;
+  final num? rating;
 
-  BookEntite(this.image, this.title, this.subtitle, this.price, this.rating);
+  BookEntite(
+      {required this.bookId,
+      required this.image,
+      required this.title,
+      required this.subtitle,
+      required this.price,
+      required this.rating});
 }
