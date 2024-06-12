@@ -8,7 +8,7 @@ class NewsetBooksCubitCubit extends Cubit<NewestBooksState> {
   NewsetBooksCubitCubit(this.fetchNewestBooksUseCase)
       : super(NewestBooksInitial());
 
-  FetchNewestBooksUseCase fetchNewestBooksUseCase;
+  final FetchNewestBooksUseCase fetchNewestBooksUseCase;
 
   Future<void> fetchNewestBooks() async {
     emit(NewestBooksLoading());
